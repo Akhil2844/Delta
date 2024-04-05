@@ -1,13 +1,15 @@
-import  './TodoList.css'
+import "./TodoList.css";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 export default function TodoList() {
-  let [todos, setTodos] = useState([{ task: "sample-text", id: uuidv4(),isDone:false }]);
+  let [todos, setTodos] = useState([
+    { task: "sample-text", id: uuidv4(), isDone: false },
+  ]);
   let [newTodos, setnewTodos] = useState("");
 
   let addNewTask = () => {
     setTodos((prevTodos) => {
-      return [...prevTodos, { task: newTodos, id: uuidv4(),isDone:false }];
+      return [...prevTodos, { task: newTodos, id: uuidv4(), isDone: false }];
     });
     setnewTodos("");
   };
@@ -49,7 +51,7 @@ export default function TodoList() {
     );
   };
 
-//  Line Through one task
+  //  Line Through one task
   let doneOne = (id) => {
     setTodos((prevTodos) =>
       prevTodos.map((todo) => {
@@ -65,27 +67,23 @@ export default function TodoList() {
     );
   };
 
-
   // Line through all task
   let doneAll = (id) => {
     setTodos((prevTodos) =>
       prevTodos.map((todo) => {
-       
-          return {
-            ...todo,
-            isDone: !todo.isDone, // Toggle isDone value
-          }
+        return {
+          ...todo,
+          isDone: !todo.isDone, // Toggle isDone value
+        };
       })
     );
   };
-
-
 
   return (
     <>
       <input
         type="text"
-        placeholder="add a task"
+        placeholder="Add a task"
         value={newTodos}
         onChange={updateTodoValue}
       />
@@ -110,7 +108,6 @@ export default function TodoList() {
             </button>
             &nbsp;&nbsp;&nbsp;
             <button onClick={() => doneOne(todo.id)}>Mark as Done</button>
-
           </li>
         ))}
       </ul>

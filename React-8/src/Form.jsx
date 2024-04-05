@@ -27,7 +27,8 @@ export default function Form() {
     setFormData((currData) => {
       //   currData[fieldname] = newValue;
       //   return { ...currData,[fieldname]:newValue };
-      return { ...currData, [event.target.name]: event.target.value };
+      return { ...currData, [event.target.name]: event.target.value },
+      setFormData("");
     });
   };
 

@@ -12,7 +12,7 @@ export default function Price({oldPrice,newPrice})
         backgroundColor:"#e0c367",
         height:"30px",
         borderBottomLeftRadius:"20px",
-         borderBottomRightRadius:"20px"
+         borderBottomRightRadius:"20zpx"
     }
     return(
         <div className="components" style={styles}>
